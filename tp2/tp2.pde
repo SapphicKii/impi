@@ -2,7 +2,7 @@ PImage[] slides = new PImage[4];
 String[] textos = new String[4];
 int currentSlide = 0;
 int lastChangeTime = 0;
-int slideDuration = 5000; // Duración por diapositiva (5 segundos)
+int slideDuration = 5000; 
 
 PFont font;
 float animSize = 32;
@@ -11,10 +11,10 @@ void setup() {
   size(960, 540);
 
   // Cargar imágenes 
-  slides[0] = loadImage("slide1.jpg"); // Ricardo Darín
-  slides[1] = loadImage("slide2.jpg"); // Intermedia
-  slides[2] = loadImage("slide3.jpg"); // Intermedia
-  slides[3] = loadImage("slide4.jpg"); // Muelle nevado
+  slides[0] = loadImage("slide1.jpg"); 
+  slides[1] = loadImage("slide2.jpg");
+  slides[2] = loadImage("slide3.jpg"); 
+  slides[3] = loadImage("slide4.jpg"); 
 
   // Textos por diapositiva
   textos[0] = "EL ETERNAUTA, LA SERIE";
