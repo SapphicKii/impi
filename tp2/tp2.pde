@@ -2,7 +2,7 @@ PImage[] slides = new PImage[4];
 String[] textos = new String[4];
 int currentSlide = 0;
 int lastChangeTime = 0;
-int slideDuration = 5000; 
+int slideDuration = 5000; // Duración por diapositiva (5 segundos)
 
 PFont font;
 float animSize = 32;
@@ -11,9 +11,9 @@ void setup() {
   size(960, 540);
 
   // Cargar imágenes 
-  slides[0] = loadImage("slide1.jpg"); 
+  slides[0] = loadImage("slide1.jpg");
   slides[1] = loadImage("slide2.jpg");
-  slides[2] = loadImage("slide3.jpg"); 
+  slides[2] = loadImage("slide3.jpg");
   slides[3] = loadImage("slide4.jpg"); 
 
   // Textos por diapositiva
@@ -35,31 +35,33 @@ void draw() {
   textSize(28);
   textLeading(36);
 
-  // Mostrar texto según la diapositiva
-  if (currentSlide == 0) {
-    fill(255, 0, 0); // Rojo para el título
+  // Texto según la diapositiva
+ if (currentSlide == 0) {
+    fill(255, 0, 0);
     textSize(48);
-    text(textos[0], width / 2, height - 60);
+    text("EL ETERNAUTA, LA SERIE", width / 2, height - 60);
 
-  } else if (currentSlide == 3) {
-    // Texto fijo
+  } else if (currentSlide == 1) {
     fill(255);
     textSize(26);
-    text(textos[3], width / 2, height - 100);
+    text("El furor de Netflix,\n en la historieta argentina de ciencia ficción\n de Héctor Germán Oesterheld", width / 2, height - 90);
 
-    // Texto animado: NADIE SE SALVA SOLO
-    animSize = 32 + 4 * sin(millis() * 0.005);
+  } else if (currentSlide == 2) {
+   fill(255, 105, 180);
+    textSize(26);
+    text("Narra cómo en Buenos Aires un grupo de\nsupervivientes luchan contra una amenaza\nalienígena controlada por una fuerza desconocida", width / 2, height - 90);
+
+  } else if (currentSlide == 3) {
+    fill(255);
+    textSize(26);
+    text("Refleja cómo se ve impactada la sociedad\npor una catástrofe bajo la frase:", width / 2, height - 100);
+
+    animSize = 32 + 4 * sin(millis() * 0.005); // Efecto animado
     textSize(animSize);
     fill(255, 255, 0);
     text("NADIE SE SALVA SOLO", width / 2, height - 50);
-
-  } else {
-    // Diapositivas 2 y 3
-    fill(255);
-    text(textos[currentSlide], width / 2, height - 60, width - 100, 200);
   }
-
-  // Avance automático de diapositiva
+  
   if (millis() - lastChangeTime > slideDuration) {
     currentSlide++;
     if (currentSlide >= slides.length) {
