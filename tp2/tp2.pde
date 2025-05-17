@@ -10,7 +10,6 @@ float animSize = 32;
 void setup() {
   size(960, 540);
 
-  // Cargar imágenes 
   slides[0] = loadImage("slide1.jpg");
   slides[1] = loadImage("slide2.jpg");
   slides[2] = loadImage("slide3.jpg");
